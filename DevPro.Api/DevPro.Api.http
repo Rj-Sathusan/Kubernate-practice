@@ -1,0 +1,22 @@
+@host = https://localhost
+@port = 7211
+
+@DevPro.Api_HostAddress = https://localhost:7211
+
+GET {{DevPro.Api_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
+
+GET {{DevPro.Api_HostAddress}}/api/product
+
+###
+
+POST {{DevPro.Api_HostAddress}}/api/product
+Content-Type: application/json
+
+{
+  //Product
+}
+
+###

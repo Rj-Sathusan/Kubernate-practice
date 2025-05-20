@@ -1,0 +1,15 @@
+services:
+  devpro.api:
+    image: devproapi
+    build:
+      context: .
+      dockerfile: DevPro.Api/Dockerfile
+    container_name: devpro_api
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Production
+      - ASPNETCORE_URLS=http://+:8080
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./DevPro.Api/bin/Debug/net8.0:/app/bin
+      - ./DevPro.Api/obj/Debug/net8.0:/app/obj
