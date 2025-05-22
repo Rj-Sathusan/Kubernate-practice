@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: devpro-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: devpro
+  template:
+    metadata:
+      labels:
+        app: devpro
+    spec:
+      containers:
+      - name: devpro
+        image: sathusan04/kubernate-practice:latest
+        ports:
+        - containerPort: 80
