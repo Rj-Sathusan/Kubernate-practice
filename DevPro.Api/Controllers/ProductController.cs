@@ -6,7 +6,7 @@ using Microsoft.Extensions.Logging;
 namespace DevPro.Api.Controllers
 {
     [ApiController]
-    [Route("api/product")]
+    [Route("api/productstest")]
     public class ProductController : ControllerBase
     {
         private readonly IProductService _productService;
@@ -18,12 +18,12 @@ namespace DevPro.Api.Controllers
             _productService = productService;
         }
 
-        // [HttpGet]
-        // public async Task<IActionResult> GetAll()
-        // {
-        //     var response = await _productService.GetAllAsync();
-        //     return Ok(response);
-        // }
+        [HttpGet]
+        public async Task<IActionResult> GetAll()
+        {
+            var response = await _productService.GetAllAsync();
+            return Ok(response);
+        }
 
         [HttpPost]
         public async Task<IActionResult> Create([FromBody] Product product)
