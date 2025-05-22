@@ -3,9 +3,11 @@ kind: Service
 metadata:
   name: devpro-service
 spec:
+  type: NodePort                # Change from ClusterIP to NodePort
   selector:
-    app: devpro
+    app: devpro                # Ensure this matches your deployment labels
   ports:
-  - port: 80
-    targetPort: 80
-  type: ClusterIP
+    - protocol: TCP
+      port: 80                 # Service port
+      targetPort: 80           # Container port
+      nodePort: 30080          # NodePort, must be between 30000-32767
