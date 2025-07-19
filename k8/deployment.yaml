@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: devpro-api
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: devpro-api
+  template:
+    metadata:
+      labels:
+        app: devpro-api
+    spec:
+      containers:
+        - name: devpro-api
+          image: sathusan04/kubernate-practice:25
+          ports:
+            - containerPort: 8080
+          env:
+            - name: ASPNETCORE_ENVIRONMENT
+              value: "Production"
